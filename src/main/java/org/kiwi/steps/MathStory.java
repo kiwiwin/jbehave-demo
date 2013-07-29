@@ -28,7 +28,9 @@ public class MathStory extends JUnitStories {
 
     @Override
     public InjectableStepsFactory stepsFactory() {
-        return new InstanceStepsFactory(configuration(), new AddSteps(), new MultiSteps());
+        return new InstanceStepsFactory(configuration(), new AddSteps()
+                , new MultiSteps()
+                , new TwiceSteps());
     }
 
     @Override
