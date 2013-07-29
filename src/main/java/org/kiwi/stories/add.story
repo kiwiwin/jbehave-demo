@@ -11,3 +11,4 @@ Given a number is '1' and '1'
 When add these two numbers
 
 Then result is '2'
+
