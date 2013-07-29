@@ -1,0 +1,16 @@
+apply plugin: 'idea'
+apply plugin: 'java'
+
+task "create-dirs" <<  {
+    sourceSets*.java.srcDirs*.each { it.mkdirs() }
+    sourceSets*.resources.srcDirs*.each { it.mkdirs() }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile 'org.jbehave:jbehave-core:3.5.3'
+    testCompile 'org.jbehave:jbehave-core:3.5.3'
+}
