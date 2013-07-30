@@ -10,8 +10,6 @@ import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
 
 public class AddSteps {
-    private int a;
-    private int b;
     private int result;
 
     private Add add;
@@ -21,13 +19,28 @@ public class AddSteps {
         add = new Add(a, b);
     }
 
+    @Given("the result from add")
+    public void getResultFromAdd() {
+        result = add.getResult();
+    }
+
     @When("add these two numbers")
     public void addTwo() {
         add.execute();
     }
 
+    @When("twice it")
+    public void twiceIt() {
+        result *= 2;
+    }
+
     @Then("result is '$result'")
     public void verifyResult(int result) {
         assertThat(add.getResult(), is(equalTo(result)));
+    }
+
+    @Then("the final result is '$result'")
+    public void verifyFinalResult(int result) {
+        assertThat(this.result, is(equalTo(result)));
     }
 }
